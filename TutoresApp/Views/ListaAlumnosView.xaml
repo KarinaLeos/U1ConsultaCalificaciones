@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TutoresApp.Views.ListaAlumnosView"
+             xmlns:vm="clr-namespace:TutoresApp.ViewModel"
+             Title="ListaAlumnosView"
+             Shell.NavBarIsVisible="False">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label">
+                <Setter Property="FontSize" Value="30"></Setter>
+                <Setter Property="Margin" Value="10,15,0,0"></Setter>
+                <Setter Property="HorizontalTextAlignment" Value="Start"></Setter>
+                <Setter Property="VerticalOptions" Value="Center"></Setter>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+  
+    
+        <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" ></RowDefinition>
+                <RowDefinition ></RowDefinition>
+            </Grid.RowDefinitions>
+            <Border BackgroundColor="#F0F8FF"
+                    StrokeThickness="0"
+                HeightRequest="150">
+                <Grid Margin="0,0,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.4*"></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Image Source="tutor.png"
+                       Grid.Column="1"
+                       WidthRequest="120"
+                       HorizontalOptions="CenterAndExpand"
+                       Margin="150,0,0,0"></Image>
+                    <StackLayout >
+                        <Label>Hola,</Label>
+                        <Label FontSize="35"
+                           FontFamily="NunitoBold"
+                               Text="{Binding Nombre}"></Label>
+                    </StackLayout>
+                </Grid>
+            </Border>
+            <!--Lista de alumnos-->
+            <StackLayout Grid.Row="1">
+                <CollectionView ItemsSource="{Binding ListaAlumnos}"
+                            BackgroundColor="Transparent">
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout Orientation="Vertical"
+                                 VerticalItemSpacing="0"></GridItemsLayout>
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Border
+                StrokeShape="RoundRectangle 15"
+                BackgroundColor="white"
+                StrokeThickness="2"
+                WidthRequest="400"
+                HeightRequest="150"
+                VerticalOptions="Start">
+                                <Border.GestureRecognizers>
+                                    <!--<TapGestureRecognizer Command="{Binding Source={x:Reference list}, Path=BindingContext.VerCalificacionesCommand}"
+                                                          CommandParameter="{Binding .}"></TapGestureRecognizer>-->
+                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" ></TapGestureRecognizer>
+                                </Border.GestureRecognizers>
+                                <Border.Shadow>
+                                    <Shadow Brush="dimgray"
+                        Offset="10,10"
+                        Opacity="0.3"></Shadow>
+                                </Border.Shadow>
+                               
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="AUTO"></ColumnDefinition>
+                                        <ColumnDefinition ></ColumnDefinition>
+                                        <ColumnDefinition Width="50"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <Image Source="tutorado.png"
+                       WidthRequest="100"
+                       Margin="20,0,10,0"></Image>
+                                    <Label VerticalOptions="Center"
+                           HorizontalOptions="StartAndExpand"
+                           Padding="0"
+                           FontSize="25"
+                           FontAttributes="Bold"
+                           Grid.Column="1"
+                           Text="{Binding Nombre}"></Label>
+                                    <Grid Grid.Column="2">
+                                        <Label FontSize="35"
+                               Margin="0,0,10,0"
+                               HorizontalOptions="End"
+                           VerticalOptions="Start"
+                          FontAttributes="Bold">&#9432;</Label>
+                                    </Grid>
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

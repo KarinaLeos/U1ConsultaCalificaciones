@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TutoresApp.MainPage">
+
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label">
+                <Setter Property="FontSize" Value="20"></Setter>
+
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Background="#f3f8fd"
+              Padding="15"
+              Margin="0,0,0,0"
+              >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"></ColumnDefinition>
+                <ColumnDefinition ></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Image Source="tutorado.png"
+                    WidthRequest="120"
+                   HorizontalOptions="CenterAndExpand"
+                   Margin="0"></Image>
+            <StackLayout Grid.Column="1"
+                         VerticalOptions="Center"
+                         Margin="10">
+
+                <Label FontSize="30"
+                       FontFamily="NunitoBold">Juan Perez
+                    <Label.Shadow>
+                        <Shadow Opacity="0.3"></Shadow>
+                    </Label.Shadow>
+                </Label>
+
+                <HorizontalStackLayout >
+                    <Label TextColor="#808080"
+                       FontAttributes="Italic">1</Label>
+                    <Label TextColor="#808080"
+                       FontAttributes="Italic"
+                           >B</Label>
+                </HorizontalStackLayout>
+            </StackLayout>
+        </Grid>
+        <Label Grid.Row="1"
+               Margin="10"
+               FontSize="30"
+               FontFamily="NunitoBold"
+               >Calificaciones
+
+        </Label>
+        <!--Va dentro del datatemplate-->
+        <StackLayout Grid.Row="2">
+            <Border 
+                    WidthRequest="400"
+                    StrokeShape="RoundRectangle 10"
+                    Padding="15"
+                    >
+                <Border.Shadow>
+                    <Shadow Opacity="0.5"></Shadow>
+                </Border.Shadow>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="AUTO"></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Label FontSize="30"
+                           FontFamily="NunitoBold">Matematicas
+
+                    </Label>
+                    <Grid 
+                          Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Label>1ERO</Label>
+                        <Label Grid.Column="1">1ERO</Label>
+                        <Label Grid.Column="2">1ERO</Label>
+                        <Label Grid.Row="1">10</Label>
+                        <Label Grid.Row="1"
+                               Grid.Column="1">10</Label>
+                        <Label Grid.Row="1"
+                               Grid.Column="2">10</Label>
+
+                    </Grid>
+                </Grid>
+            </Border>
+        </StackLayout>
+
+        <Button Grid.Row="3"
+                Margin="20,0,20,20"
+                Text="Volver"
+                Padding="5"
+                CornerRadius="10"
+                WidthRequest="400"
+                HeightRequest="50"
+                FontSize="15"
+                BackgroundColor="#f79c9b"></Button>
+    </Grid>
+
+
+</ContentPage>

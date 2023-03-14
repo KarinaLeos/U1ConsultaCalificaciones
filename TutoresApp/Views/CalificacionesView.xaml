@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TutoresApp.Views.CalificacionesView"
+             x:Name="list"
+             Title="CalificacionesView">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label">
+                <Setter Property="FontSize" Value="20"></Setter>
+
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Background="#f3f8fd"
+              Padding="15"
+              Margin="0,0,0,0"
+              >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"></ColumnDefinition>
+                <ColumnDefinition ></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Image Source="tutorado.png"
+                    WidthRequest="120"
+                   HorizontalOptions="CenterAndExpand"
+                   Margin="0"></Image>
+            <StackLayout Grid.Column="1"
+                         VerticalOptions="Center"
+                         Margin="10">
+
+                <Label FontSize="30"
+                       FontFamily="NunitoBold"
+                       Text="{Binding alumnoDTO.Nombre}">
+                    <Label.Shadow>
+                        <Shadow Opacity="0.3"></Shadow>
+                    </Label.Shadow>
+                </Label>
+
+                <HorizontalStackLayout >
+                    <Label TextColor="#808080"
+                      Text="{Binding alumnoDTO.Grado}"></Label>
+                    <Label TextColor="#808080"
+                      
+                           Text="{Binding alumnoDTO.Seccion}"></Label>
+                </HorizontalStackLayout>
+            </StackLayout>
+        </Grid>
+        <Label Grid.Row="1"
+               Margin="10"
+               FontSize="30"
+               FontFamily="NunitoBold"
+               >Calificaciones
+
+        </Label>
+        <!--Va dentro del datatemplate-->
+        <ScrollView Grid.Row="2">
+            <StackLayout>
+                <CollectionView ItemsSource="{Binding ListaDeCalifiaciones}" >
+                   
+
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout >
+                                <Border 
+                    WidthRequest="300"
+                    StrokeShape="RoundRectangle 10"
+                    Padding="15"
+                    >
+                                    <Border.Shadow>
+                                        <Shadow Opacity="0.5"></Shadow>
+                                    </Border.Shadow>
+                                    <StackLayout
+                             >
+                                        <Label FontSize="25"
+                           FontFamily="NunitoBold"
+                           HorizontalOptions="CenterAndExpand"
+                           Text="{Binding NombreAsignatura}"></Label>
+                                        <HorizontalStackLayout HorizontalOptions="CenterAndExpand">
+                                            <Label Margin="0,0,20,0">Unidad</Label>
+                                            <Label Text="{Binding Unidad}"></Label>
+                                        </HorizontalStackLayout>
+                                        <Label 
+                           HorizontalOptions="CenterAndExpand"
+                        Text="{Binding Calificacion}"></Label>
+                                    </StackLayout>
+                                </Border>
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </StackLayout>
+        </ScrollView>
+
+       
+    </Grid>
+</ContentPage>
